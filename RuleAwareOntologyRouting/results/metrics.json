@@ -1,0 +1,81 @@
+{
+  "summary": {
+    "Brute-Force": {
+      "Recall@3": 1.0,
+      "Precision@3": 0.043,
+      "AOL": 50,
+      "E2E_ms_mean": 1988.0,
+      "E2E_ms_std": 0.0
+    },
+    "TBox-Only": {
+      "Recall@3": 0.36,
+      "Precision@3": 0.263,
+      "AOL": 2.98,
+      "E2E_ms_mean": 224.9,
+      "E2E_ms_std": 233.4
+    },
+    "Random": {
+      "Recall@3": 0.043,
+      "Precision@3": 0.033,
+      "AOL": 3,
+      "E2E_ms_mean": 99.8,
+      "E2E_ms_std": 171.4
+    },
+    "Rule-Aware Router": {
+      "Recall@3": 0.49,
+      "Precision@3": 0.383,
+      "AOL": 2.78,
+      "E2E_ms_mean": 184.5,
+      "E2E_ms_std": 221.6
+    },
+    "CBF-FPR": 0.02,
+    "n_queries": 50,
+    "n_ontologies": 50
+  },
+  "case_study": {
+    "query": "Is it safe for a pregnant woman to consume sodium benzoate preservative?",
+    "gt": [
+      "CHEBI",
+      "FOODON",
+      "FOBI"
+    ],
+    "bf": [
+      "ADO",
+      "AGRO",
+      "APO"
+    ],
+    "tor": [
+      "FOODON",
+      "HP"
+    ],
+    "rr": [
+      "BAO",
+      "CHEBI",
+      "CL"
+    ],
+    "router": [
+      "FOODON"
+    ],
+    "router_scores": [
+      [
+        "FOODON",
+        0.6666666666666666
+      ]
+    ],
+    "router_ms": 82.31,
+    "bf_ms": 1988.02,
+    "tor_ms": 103.72
+  },
+  "config": {
+    "cbf": {
+      "size_bits": 1000000,
+      "num_hashes": 7
+    },
+    "routing": {
+      "threshold_tau": 0.5,
+      "top_k": 3,
+      "weight_tbox": 1.0,
+      "weight_head": 1.5
+    }
+  }
+}

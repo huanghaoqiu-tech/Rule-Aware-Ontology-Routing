@@ -1,0 +1,84 @@
+# Rule-Aware Ontology Routing — experiment parameters
+
+dataset:
+  owl_dir: "data/bioportal_owl"
+  manifest: "data/ontology_manifest.json"
+  # Final BioPortal-50 splits
+  swrl_positive:
+    - FASTO
+    - DMTO
+    - BIPOM
+    - SITBAC
+    - ICO
+    - STMSO
+    - AGRO
+    - OMRSE
+    - STATO
+    - IAO
+  swrl_negative:
+    - APO
+    - BAO
+    - BFO
+    - CDAO
+    - CHEBI
+    - CHMO
+    - CL
+    - DOID
+    - DUO
+    - ENVO
+    - ENVTHES
+    - ERO
+    - FIX
+    - FOODON
+    - GO
+    - HP
+    - IDO
+    - MA
+    - MONDO
+    - MP
+    - OBI
+    - OGMS
+    - OHMI
+    - PATO
+    - PO
+    - PR
+    - REX
+    - RO
+    - SO
+    - SWO
+    - TEO
+    - UO
+    - XAO
+    - ZFA
+    - PECO
+    - FOBI
+    - OPMI
+    - MF
+    - ADO
+    - HTN
+
+# Counting Bloom Filter
+cbf:
+  size_bits: 1000000   # 1M bits
+  num_hashes: 7
+
+# Hybrid index + scoring / routing
+routing:
+  threshold_tau: 0.5
+  top_k: 3
+  weight_tbox: 1.0     # w_t
+  weight_head: 1.5     # w_h  (w_h > w_t)
+
+# Experiment
+experiment:
+  n_queries: 50
+  random_seed: 42
+  index_cache: "RuleAwareOntologyRouting/results/index_cache.json"
+  results_json: "RuleAwareOntologyRouting/results/metrics.json"
+  max_bytes_per_ontology: 120000000  # scan up to 120MB of each OWL for terms/rules
+
+# Offline indexing scan
+indexing:
+  # For very large OWL files, scan head+tail windows (bytes each side)
+  large_file_threshold_mb: 80
+  window_mb: 40

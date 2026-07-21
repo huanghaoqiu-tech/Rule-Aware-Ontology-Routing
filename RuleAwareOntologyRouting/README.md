@@ -1,7 +1,7 @@
 # Rule-Aware Ontology Routing
 
 Rule-Aware Ontology Routing experiment code for the BioPortal-50 benchmark
-(10 SWRL+ / 40 SWRL− OWL files under `data/bioportal_owl/`).
+(10 SWRL+ / 40 SWRL− OWL files under).
 
 ## Layout
 
